@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+   
+    <body>
+      <p>
+        R O C K &nbsp;&nbsp;&nbsp; P A P E R &nbsp;&nbsp;&nbsp; S C I S S O R S
+      </p>     
+      <button onclick="playGame('Rock');">Rock</button>
+      &nbsp;&nbsp;&nbsp;
+      <button onclick="playGame('Paper');">Paper</button>
+      &nbsp;&nbsp;&nbsp;
+      <Button onclick=" playGame('Scissors');">Scissors</Button> 
+    </body>
+   
+   <script>
+      function playGame(playerMove) {
+        let computerMove = pickComputerMove();
+        let result = '';
+        if (playerMove === 'Scissors') {
+          if (computerMove === 'Rock') {
+        result = 'You lost! Try again.';
+          } else if (computerMove === 'Paper') {
+            result = 'You win! Congrats!';
+          } else if (computerMove === 'Scissors') {
+            result = 'It\'s a tie! Try again.';
+          }
+        } else if(playerMove === 'Paper') {
+          if (computerMove === 'Rock') {
+            result = 'You win! Congrats!';
+          } else if (computerMove === 'Paper') {
+            result = 'It\'s a tie! Try again.';
+          } else if (computerMove === 'Scissors') {
+            result = 'You lost! Try again.';
+          }
+        } else if (playerMove === 'Rock') {
+          if (computerMove === 'Rock') {
+            result = 'It\'s a tie! Try again.';
+          } else if (computerMove === 'Paper') {
+            result = 'You lost! Try again.';
+          } else if (computerMove === 'Scissors') {
+            result = 'You win! Congrats!';
+          }
+        }
+        alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}` )
+      }
+      
+      function pickComputerMove() {
+        let computerMove = '';
+        let RandomNumber = Math.random();
+        console.log(RandomNumber);
+        if (RandomNumber < 0.33) {
+          computerMove = 'Rock';
+        } else if (RandomNumber >= 0.33 && RandomNumber < 0.66) {
+          computerMove = 'Paper';
+        } else if (RandomNumber >= 0.66) {
+          computerMove = 'Scissors';
+        }
+
+        return computerMove;
+      }
+    </script>
+</html>
